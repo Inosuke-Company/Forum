@@ -9,10 +9,8 @@ export function ForumShell({children}:{children:ReactNode}){
   return <div className="app-shell">
     <header className="topbar">
       <div className="topbar-inner">
-        <button className="brand" onClick={()=>nav('/forum')} aria-label="Fórum Adrenaline">
-          <span className="brand-mark">A</span><span className="brand-word">adrenaline</span>
-        </button>
-        <div className="top-search" onClick={()=>nav('/pesquisa')}><Search size={17}/><span>Pesquisar no fórum</span><kbd>⌘ K</kbd></div>
+        <button className="brand" onClick={()=>nav('/forum')} aria-label="Fórum Adrenaline"><span className="brand-mark">A</span><span className="brand-word">adrenaline</span></button>
+        <button className="top-search" onClick={()=>nav('/pesquisa')} aria-label="Pesquisar no fórum"><Search size={17}/><span>Pesquisar no fórum</span><kbd>⌘ K</kbd></button>
         <div className="top-actions">
           <button aria-label="Explorar"><Compass size={19}/></button>
           <button aria-label="Comunidade pública"><Globe2 size={19}/></button>
@@ -26,10 +24,10 @@ export function ForumShell({children}:{children:ReactNode}){
       <aside className="left-rail">
         <div className="rail-group">
           <div className="rail-label">COMUNIDADE</div>
-          <button className={active==='home'?'rail-link active':''} onClick={()=>nav('/forum')}><Home size={18}/><span>Início</span></button>
-          <button className={active==='feed'?'rail-link active':''} onClick={()=>nav('/feed')}><Rss size={18}/><span>Feed</span></button>
-          <button className={active==='search'?'rail-link active':''} onClick={()=>nav('/pesquisa')}><Search size={18}/><span>Pesquisar</span></button>
-          <button className={active==='users'?'rail-link active':''} onClick={()=>nav('/membros')}><Users size={18}/><span>Membros</span></button>
+          <button className={`rail-link ${active==='home'?'active':''}`} onClick={()=>nav('/forum')}><Home size={18}/><span>Início</span></button>
+          <button className={`rail-link ${active==='feed'?'active':''}`} onClick={()=>nav('/feed')}><Rss size={18}/><span>Feed</span></button>
+          <button className={`rail-link ${active==='search'?'active':''}`} onClick={()=>nav('/pesquisa')}><Search size={18}/><span>Pesquisar</span></button>
+          <button className={`rail-link ${active==='users'?'active':''}`} onClick={()=>nav('/membros')}><Users size={18}/><span>Membros</span></button>
         </div>
         <div className="rail-group">
           <div className="rail-label">SEUS ESPAÇOS</div>
