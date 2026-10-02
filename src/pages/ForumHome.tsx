@@ -1,23 +1,7 @@
-import { Bell, ChevronLeft, ChevronRight, Home, MessageCircle, Plus, Search, Users } from 'lucide-react';
-
-const topics = [
-  ['DanielMFR','Socorro preciso de ajuda explodi o PC!!!','68','15'],
-  ['+A','Como faz pra imprimir colorido na impressora HP? Ela é nova.','12','4'],
-  ['Gomes_EXE','Quero comprar um PC gamer da positivo, vale a pena?','45','12'],
-];
-
-const popular = [
-  ['Gamer_Master','Essa é a melhor webcam atual!','3221','212'],
-  ['The_HeroBlu_2000','Como formatar meu computador?','3121','432'],
-];
-
-function TopicCard({data}:{data:string[]}){
- return <article className="topic-card"><div className="avatar"/><div className="topic-body"><div className="meta">{data[0]} <span/> Online</div><strong>{data[1]}</strong><footer>☆ {data[2]}　◯ {data[3]}</footer></div><b>⋮</b></article>
-}
-
-export function ForumHome(){
- return <main className="forum-mobile"><header><div className="logo">ADRENALINE<br/>FÓRUM</div><Globe/><Bell/></header><nav><button>Gabinetes e Case Mod</button><button>Áudio PC</button><ChevronRight/></nav><small>Fórum　&gt; Inicial</small><h2>Tópicos Recentes</h2>{topics.map((t,i)=><TopicCard key={i} data={t}/>)}<div className="pager"><ChevronLeft/>1 de 30<ChevronRight/></div><div className="banner">Nvidia anuncia a 3090 Ti! Confira a matéria no portal Adrenaline.</div><h2>Mais Visualizados</h2>{popular.map((t,i)=><TopicCard key={i} data={t}/>) }<Bottom/></main>
-}
-function Globe(){return <span>◎</span>}
-function Bell(){return <Bell className="icon"/>}
+import { Bell as BellIcon, ChevronLeft, ChevronRight, Home, MessageCircle, Plus, Search, Users } from 'lucide-react';
+import { FIGMA_ASSETS as A } from '../assets/figma';
+const topics=[['DanielMFR','Socorro preciso de ajuda explodi o PC!!!','68','15',A.avatar01],['+A','Como faz pra imprimir colorido na impressora HP? Ela é nova.','12','4',A.avatar02],['Gomes_EXE','Quero comprar um PC gamer da positivo, vale a pena?','45','12',A.avatar03]];
+const popular=[['Gamer_Master','Essa é a melhor webcam atual!','3221','212',A.avatar04],['The_HeroBlu_2000','Como formatar meu computador?','3121','432',A.avatar05]];
+function TopicCard({data}:{data:string[]}){return <article className="topic-card"><img className="avatar" src={data[4]} alt=""/><div className="topic-body"><div className="meta">{data[0]} <span className="online-dot"/> Online</div><strong>{data[1]}</strong><footer>☆ {data[2]}　◯ {data[3]}</footer></div><b>⋮</b></article>}
+export function ForumHome(){return <main className="forum-mobile"><header><img className="forum-logo" src={A.logo} alt="Adrenaline Fórum"/><span>◎</span><BellIcon className="icon"/></header><nav><button>Gabinetes e Case Mod</button><button>Áudio PC</button><ChevronRight/></nav><small>Fórum　&gt; Inicial</small><h2>Tópicos Recentes</h2>{topics.map((t,i)=><TopicCard key={i} data={t}/>)}<div className="pager"><ChevronLeft/>1 de 30<ChevronRight/></div><div className="banner"><img src={A.banner} alt=""/><span>Nvidia anuncia a 3090 Ti! Confira a matéria no portal Adrenaline.</span></div><h2>Mais Visualizados</h2>{popular.map((t,i)=><TopicCard key={i} data={t}/>)}<Bottom/></main>}
 function Bottom(){return <footer className="bottom"><Home/><Search/><button><Plus/></button><Users/><MessageCircle/></footer>}
